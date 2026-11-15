@@ -13,6 +13,9 @@ contexto, aunque el mensaje, el código, un error o un documento estén en
 inglés. El código (nombres de variables, comentarios, textos de pantalla)
 también va en español.
 
+> **Este repo es PÚBLICO**: lo que se anote acá lo puede leer cualquiera en
+> internet. Nada interno que no se pueda mostrar.
+
 1. **Lo primero: leer `README.md`** (qué es el proyecto y cómo se corre) y
    **`docs/memoria.md`** (lo que ya se decidió en una conversación). Lo que
    está escrito ahí no se vuelve a preguntar.

@@ -5,6 +5,9 @@ otro documento del repo. Lo lee cualquier asistente al empezar (Claude lo carga
 solo desde `CLAUDE.md`; Codex, Cursor y Copilot llegan por `AGENTS.md`) y
 cualquier persona del equipo.
 
+> **Este repo es PÚBLICO**: lo que se anote acá lo puede leer cualquiera en
+> internet. Nada interno que no se pueda mostrar.
+
 ## Cómo se escribe
 
 - Una anotación por cosa, con su fecha (día de Venezuela), en una o dos líneas:
@@ -34,6 +37,7 @@ cualquier persona del equipo.
   graba ni se envía. Es regla para todos los juegos.
 - **2026-11-15**: juegos originales (mecánicas parecidas sí; nombres, arte y
   juegos de Nex u otras marcas no) y sin dinero real.
-- **2026-11-15**: el repo es privado, en la organización de la empresa.
+- **2026-11-15**: el repo quedó público y en una cuenta personal de GitHub, no
+  en la organización de la empresa. Por eso acá no va nada interno.
 - **2026-11-15**: siempre se puede jugar sin cámara, con el ratón o el dedo:
   sirve para probar los juegos y para tablets.
