@@ -51,6 +51,8 @@ export default function Escenario({
     let raf = 0;
     let anterior = performance.now();
     let tiempoVideo = -1;
+    let ultimaDeteccion = 0;
+    let duracionDeteccion = 0;
     let landmarks: NormalizedLandmark[][] = [];
     let jugadoresAntes = 0;
     const punteros = new Map<number, Punto>();
@@ -87,7 +89,8 @@ export default function Escenario({
 
     const cuadro = (ahora: number) => {
       raf = requestAnimationFrame(cuadro);
-      const dt = Math.min(0.05, (ahora - anterior) / 1000);
+      const dtReal = Math.min(1, (ahora - anterior) / 1000);
+      const dt = Math.min(0.1, dtReal);
       anterior = ahora;
 
       const dpr = window.devicePixelRatio || 1;
@@ -122,9 +125,19 @@ export default function Escenario({
         ctx.fillRect(0, 0, ancho, alto);
       }
 
-      if (detector && hayVideo && vid.currentTime !== tiempoVideo) {
+      // Detectar sólo si hay un cuadro nuevo de la cámara y, en equipos lentos,
+      // dejando al menos tanto tiempo como tarda la detección: así el juego se
+      // sigue dibujando fluido entre una detección y otra.
+      if (
+        detector &&
+        hayVideo &&
+        vid.currentTime !== tiempoVideo &&
+        ahora - ultimaDeteccion >= duracionDeteccion
+      ) {
         tiempoVideo = vid.currentTime;
+        ultimaDeteccion = ahora;
         landmarks = detector.detectForVideo(vid, ahora).landmarks;
+        duracionDeteccion = performance.now() - ahora;
       }
       const aPantalla = (p: NormalizedLandmark): Punto => ({
         x: ancho - (ox + p.x * dw), // espejo
@@ -156,7 +169,7 @@ export default function Escenario({
         ctx.stroke();
       }
 
-      alCuadroRef.current({ ctx, ancho, alto, dt, manos, cuerpos });
+      alCuadroRef.current({ ctx, ancho, alto, dt, dtReal, manos, cuerpos });
 
       const radio = alto * 0.035;
       for (const m of manos) {

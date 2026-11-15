@@ -39,5 +39,8 @@ cualquier persona del equipo.
   juegos de Nex u otras marcas no) y sin dinero real.
 - **2026-11-15**: el repo quedó público y en una cuenta personal de GitHub, no
   en la organización de la empresa. Por eso acá no va nada interno.
+- **2026-11-15**: en equipos sin tarjeta gráfica de verdad (gráficos por
+  software) la detección usa el procesador: en la prueba fue 9 veces más
+  rápido (63 ms contra 545 ms por cuadro). Antes de comprar equipos, probarlos.
 - **2026-11-15**: siempre se puede jugar sin cámara, con el ratón o el dedo:
   sirve para probar los juegos y para tablets.

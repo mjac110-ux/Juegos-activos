@@ -47,8 +47,10 @@ estático) que detecta el cuerpo con MediaPipe **dentro del navegador**.
 
 1. Crear `src/juegos/<nombre>/<Nombre>.tsx`: un componente `"use client"`
    que devuelve `<Escenario alCuadro={...}>` y dibuja en `ctx` con lo que
-   recibe (`ancho`, `alto`, `dt`, `manos`, `cuerpos`). Medidas siempre
-   relativas a `alto`, para que se vea igual en cualquier pantalla.
+   recibe (`ancho`, `alto`, `dt`, `dtReal`, `manos`, `cuerpos`). Medidas
+   siempre relativas a `alto`, para que se vea igual en cualquier pantalla.
+   Para mover cosas se usa `dt`; para relojes, `dtReal`, así una ronda de
+   60 s dura 60 s aunque el equipo vaya lento.
 2. Crear `src/app/juegos/<nombre>/page.tsx` y agregarlo a `JUEGOS` en
    `src/app/page.tsx`.
 3. Verificar: `npm run build` y `npm run lint` sin errores, y jugarlo sin

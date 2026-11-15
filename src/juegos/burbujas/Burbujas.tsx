@@ -59,13 +59,13 @@ export default function Burbujas() {
     }
   };
 
-  const alCuadro = useCallback(({ ctx, ancho, alto, dt, manos }: Cuadro) => {
+  const alCuadro = useCallback(({ ctx, ancho, alto, dt, dtReal, manos }: Cuadro) => {
     const g = juego.current;
     const radioMano = alto * 0.035;
     g.reloj += dt;
 
     if (g.fase === "jugando") {
-      g.tiempo = Math.max(0, g.tiempo - dt);
+      g.tiempo = Math.max(0, g.tiempo - dtReal); // 60 segundos de verdad
       g.proxima -= dt;
       if (g.proxima <= 0) {
         // Van saliendo un poco más seguido a medida que pasa la ronda.

@@ -6,8 +6,13 @@ export type Cuadro = {
   ctx: CanvasRenderingContext2D;
   ancho: number;
   alto: number;
-  /** Segundos desde el cuadro anterior. */
+  /**
+   * Segundos desde el cuadro anterior, con tope de 0,1 s para que nada salte
+   * si el equipo se pone lento. Para mover cosas.
+   */
   dt: number;
+  /** Segundos reales desde el cuadro anterior (tope de 1 s). Para relojes. */
+  dtReal: number;
   /** Manos de todos los jugadores (y el ratón o el dedo, si se usan). */
   manos: Punto[];
   /** Cuerpos completos, por si un juego necesita pies, cabeza, etc. */
