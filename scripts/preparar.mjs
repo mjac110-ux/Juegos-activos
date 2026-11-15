@@ -3,7 +3,7 @@
 //   - public/mediapipe/wasm: el motor de MediaPipe (viene en node_modules)
 //   - public/modelos/pose_landmarker_lite.task: el modelo de pose (se baja una vez)
 // Corre solo antes de `npm run dev` y `npm run build`.
-import { cp, mkdir, stat, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, stat, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -12,11 +12,14 @@ const MODELO_URL =
   "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task";
 const modelo = join(raiz, "public/modelos/pose_landmarker_lite.task");
 
-await cp(
-  join(raiz, "node_modules/@mediapipe/tasks-vision/wasm"),
-  join(raiz, "public/mediapipe/wasm"),
-  { recursive: true },
-);
+// Sólo la versión que usa el detector (la otra, "module", pesa otros 14 MB).
+await mkdir(join(raiz, "public/mediapipe/wasm"), { recursive: true });
+for (const archivo of ["vision_wasm_internal.js", "vision_wasm_internal.wasm"]) {
+  await copyFile(
+    join(raiz, "node_modules/@mediapipe/tasks-vision/wasm", archivo),
+    join(raiz, "public/mediapipe/wasm", archivo),
+  );
+}
 
 const yaEsta = await stat(modelo).then((s) => s.size > 1_000_000).catch(() => false);
 if (!yaEsta) {

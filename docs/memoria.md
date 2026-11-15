@@ -42,5 +42,9 @@ cualquier persona del equipo.
 - **2026-11-15**: en equipos sin tarjeta gráfica de verdad (gráficos por
   software) la detección usa el procesador: en la prueba fue 9 veces más
   rápido (63 ms contra 545 ms por cuadro). Antes de comprar equipos, probarlos.
+- **2026-11-15**: se publica en GitHub Pages
+  (https://mjac110-ux.github.io/Juegos-activos/) para probarlo desde
+  cualquier equipo sin instalar nada. Se eligió sobre Amazon (AWS) porque es
+  gratis y no hace falta dar acceso a ninguna cuenta.
 - **2026-11-15**: siempre se puede jugar sin cámara, con el ratón o el dedo:
   sirve para probar los juegos y para tablets.

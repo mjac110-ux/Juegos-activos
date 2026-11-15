@@ -42,6 +42,10 @@ estático) que detecta el cuerpo con MediaPipe **dentro del navegador**.
   juego en `src/app/juegos/<nombre>/page.tsx`.
 - `scripts/preparar.mjs`: copia el motor de MediaPipe y baja el modelo de
   pose a `public/` (corre solo antes de `dev` y `build`; no se sube a git).
+- `.github/workflows/publicar.yml`: publica en GitHub Pages cada push a
+  `main`. Allá el sitio vive en `/Juegos-activos/`: los enlaces con
+  `next/link` lo resuelven solos, pero un archivo de `public/` que se cargue a
+  mano lleva delante `RUTA_BASE` (`src/lib/ruta.ts`).
 
 ### Para agregar un juego
 

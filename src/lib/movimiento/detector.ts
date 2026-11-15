@@ -1,4 +1,5 @@
 import { FilesetResolver, PoseLandmarker } from "@mediapipe/tasks-vision";
+import { RUTA_BASE } from "@/lib/ruta";
 
 let pendiente: Promise<PoseLandmarker> | null = null;
 
@@ -26,9 +27,9 @@ function graficosPorSoftware(): boolean {
  */
 export function cargarDetector(): Promise<PoseLandmarker> {
   pendiente ??= (async () => {
-    const motor = await FilesetResolver.forVisionTasks("/mediapipe/wasm");
+    const motor = await FilesetResolver.forVisionTasks(`${RUTA_BASE}/mediapipe/wasm`);
     const opciones = (delegate: "GPU" | "CPU") => ({
-      baseOptions: { modelAssetPath: "/modelos/pose_landmarker_lite.task", delegate },
+      baseOptions: { modelAssetPath: `${RUTA_BASE}/modelos/pose_landmarker_lite.task`, delegate },
       runningMode: "VIDEO" as const,
       numPoses: 2, // dos jugadores a la vez
       minPoseDetectionConfidence: 0.5,

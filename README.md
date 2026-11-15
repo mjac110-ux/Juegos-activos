@@ -8,6 +8,14 @@ que se consigue allá, sin consola importada ni suscripción.
 Juegos disponibles: **Burbujas** (explotar burbujas con las manos, 60 s).
 Vienen: Esquiva y Estatuas.
 
+## Jugar en línea
+
+**https://mjac110-ux.github.io/Juegos-activos/**
+
+Se abre en Chrome o Edge (laptop, PC o celular), se le da permiso a la cámara y
+listo. La primera vez baja unos 20 MB (el reconocimiento del cuerpo); después
+queda guardado en el navegador. Se actualiza solo cada vez que cambia `main`.
+
 ## Lo que hace falta para jugar en la TV
 
 - Una PC, laptop o mini PC con **Chrome o Edge** (Windows o Linux).
